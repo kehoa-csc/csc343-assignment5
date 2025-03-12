@@ -3,6 +3,14 @@ import java.util.Arrays;
 
 public class Main {
 
+    public static double avg_of_arr(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum+=arr[i];
+        }
+        return sum/(double)arr.length;
+    }
+
     //calculates the wait times in an array of process burst times, assuming the order of processes as given
     public static int[] wait_times(int[] burst_times) {
         int time_passed = 0;
@@ -47,12 +55,16 @@ public class Main {
         for (int i = 0; i < burst_times.length; i++) {
             System.out.println("\t"+i+"\t\t|\t\t"+wait_times_fcfs[i]+"\t\t|\t\t"+turnaround_times_fcfs[i]);
         }
+        System.out.println("Average Wait Time: " + avg_of_arr(wait_times_fcfs));
+        System.out.println("Average Turnaround Time: " + avg_of_arr(turnaround_times_fcfs));
 
         System.out.println("------------------- SJF -------------------");
         System.out.println(" Process ID |  Waiting Time | Turnaround Time");
         for (int i = 0; i < burst_times.length; i++) {
             System.out.println("\t"+i+"\t\t|\t\t"+wait_times_sjf[i]+"\t\t|\t\t"+turnaround_times_sjf[i]);
         }
+        System.out.println("Average Wait Time: " + avg_of_arr(wait_times_sjf));
+        System.out.println("Average Turnaround Time: " + avg_of_arr(turnaround_times_sjf));
 
     }
 }
